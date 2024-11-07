@@ -16,8 +16,11 @@ public class GoogleTest {
 
 	@BeforeMethod
 	public void setUp() throws MalformedURLException {
+		System.out.println(1);
 		ChromeOptions opt = new ChromeOptions();
+		System.out.println(2);
 		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), opt);
+		System.out.println(3);
 		driver.get("https://google.com");
 	}
 
