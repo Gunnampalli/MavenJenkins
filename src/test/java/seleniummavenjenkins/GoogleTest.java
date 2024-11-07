@@ -9,18 +9,20 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 public class GoogleTest {
 	WebDriver driver = null;
 
 	@BeforeMethod
-	public void setUp() throws MalformedURLException {
-		System.out.println(1);
-		ChromeOptions opt = new ChromeOptions();
-		System.out.println(2);
-		driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), opt);
-		System.out.println(3);
+	@Parameters("browser")
+	public void setUp(String browser) throws MalformedURLException {
+		if (browser.equals("chrome")) {
+			System.out.println("Browser Name = " + browser);
+			ChromeOptions opt = new ChromeOptions();
+			driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), opt);
+		}
 		driver.get("https://google.com");
 	}
 
