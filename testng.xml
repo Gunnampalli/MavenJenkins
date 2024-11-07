@@ -3,7 +3,7 @@
 <suite name="Suite">
 
   <test thread-count="5" name="Test">
-  <parameter name="browser" value="${browserName}"/>
+  <parameter name="browser" value="${browser}"/>
     <classes>
       <class name="seleniummavenjenkins.GoogleTest"/>
     </classes>
